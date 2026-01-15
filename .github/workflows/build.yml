@@ -16,6 +16,7 @@ jobs:
         dotnet-version: 8.0.x
     - name: Get dependencies
       run: |
+        apt install mono-runtime
         curl -L -o kp.zip https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.18/KeePass-2.18.zip/download
         curl -L -o cs.zip https://github.com/adrium/ILSpyConvert/releases/latest/download/ILSpyConvert.zip
         unzip kp.zip
