@@ -14,15 +14,17 @@ jobs:
     - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Get dependencies
+    - name: install mono
       run: |
         sudo apt update
-        sudo apt install -y mono-runtime
+        sudo apt install -y mono-complete
+    - name: get dependencies
+      run: |
         curl -L -o kp.zip https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.18/KeePass-2.18.zip/download
         curl -L -o cs.zip https://github.com/adrium/ILSpyConvert/releases/latest/download/ILSpyConvert.zip
         unzip kp.zip
         unzip cs.zip
-    - name: Test
+    - name: test
       run: |
         ls -al
         mono ILSpyConvert.exe
