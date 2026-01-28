@@ -20,13 +20,14 @@ jobs:
         sudo apt install -y mono-devel xvfb
     - name: get dependencies
       run: |
-        mkdir build
         curl -L -o kp.zip https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.18/KeePass-2.18.zip/download
-        curl -L -o cs.zip https://github.com/adrium/ILSpyConvert/releases/latest/download/ILSpyConvert.zip
         unzip -d build kp.zip
-        unzip -d build cs.zip
-    - name: test
+    - run: dotnet build -c Release src
+    - name: plgx create
       run: |
-        mono build/ILSpyConvert.exe 2 build/ILSpyConvert.exe
-        xvfb-run mono build/KeePass.exe -plgx-create $PWD/build
-        ls -al
+        cp -r assets output
+        cp src/bin/Release/*/*.dll output
+        xvfb-run mono build/KeePass.exe -plgx-create $PWD/output
+    - uses: actions/upload-artifact@v4
+      with:
+        path: output.plgx
