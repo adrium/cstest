@@ -3,9 +3,8 @@
 		<AssemblyName>HelloWorld</AssemblyName>
 	</PropertyGroup>
 	<ItemGroup>
-		<Reference Include="HelloWorldLib">
-			<HintPath>HelloWorldLib.dll</HintPath>
+		<Reference Include="HelloWorld">
+			<HintPath>HelloWorld.dll</HintPath>
 		</Reference>
-		<Compile Include="Plugin.cs" />
 	</ItemGroup>
 </Project>
