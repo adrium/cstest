@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Library</OutputType>
-    <TargetFramework>net20</TargetFramework>
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<TargetFramework>net20</TargetFramework>
 	<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
 	<AssemblyName>HelloWorldLib</AssemblyName>
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="KeePass">
-      <HintPath>..\build\KeePass.exe</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="KeePass">
+			<HintPath>..\build\KeePass.exe</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>
