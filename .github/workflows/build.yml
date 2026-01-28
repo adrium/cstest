@@ -17,7 +17,7 @@ jobs:
     - name: install mono
       run: |
         sudo apt update
-        sudo apt install -y mono-devel
+        sudo apt install -y mono-devel xvfb
     - name: get dependencies
       run: |
         mkdir build
@@ -28,5 +28,5 @@ jobs:
     - name: test
       run: |
         mono build/ILSpyConvert.exe 2 build/ILSpyConvert.exe
-        mono build/KeePass.exe -plgx-create $PWD/build
+        xvfb-run mono build/KeePass.exe -plgx-create $PWD/build
         ls -al
