@@ -3,8 +3,8 @@
 	<PropertyGroup>
 		<OutputType>Library</OutputType>
 		<TargetFramework>net20</TargetFramework>
-	<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-	<AssemblyName>HelloWorld</AssemblyName>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+		<AssemblyName>HelloWorld</AssemblyName>
 	</PropertyGroup>
 
 	<ItemGroup>
