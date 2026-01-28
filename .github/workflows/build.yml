@@ -17,7 +17,7 @@ jobs:
     - name: install mono
       run: |
         sudo apt update
-        sudo apt install -y mono-complete
+        sudo apt install -y mono-devel
     - name: get dependencies
       run: |
         mkdir build
@@ -27,5 +27,6 @@ jobs:
         unzip -d build cs.zip
     - name: test
       run: |
-        ls -al
         mono build/ILSpyConvert.exe 2 build/ILSpyConvert.exe
+        mono build/KeePass.exe -plgx-create $PWD/build
+        ls -al
