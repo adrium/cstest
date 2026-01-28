@@ -10,7 +10,6 @@
 	<ItemGroup>
 		<Reference Include="KeePass">
 			<HintPath>..\build\KeePass.exe</HintPath>
-			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
 

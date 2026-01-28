@@ -26,7 +26,8 @@ jobs:
     - name: plgx create
       run: |
         cp -rv assets output
-        cp src/bin/Release/*/*.dll output
+        rm -v src/bin/Release/*/KeePass*.dll
+        cp -v src/bin/Release/*/*.dll output
         xvfb-run mono build/KeePass.exe -plgx-create $PWD/output
     - uses: actions/upload-artifact@v4
       with:
