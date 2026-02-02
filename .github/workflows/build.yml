@@ -14,21 +14,18 @@ jobs:
     - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: install mono
+    - name: install dependencies
       run: |
         sudo apt update
-        sudo apt install -y mono-devel xvfb
-    - name: get dependencies
-      run: |
-        curl -L -o kp.zip https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.18/KeePass-2.18.zip/download
-        unzip -d build kp.zip
+        sudo apt install -y xvfb keepass2
     - run: dotnet build -c Release src
     - name: plgx create
       run: |
         cp -rv assets output
-        rm -v src/bin/Release/*/KeePass*.dll
-        cp -v src/bin/Release/*/*.dll output
-        xvfb-run mono build/KeePass.exe -plgx-create $PWD/output
+        cat src/*.cs | grep ^using | sort -u > output/Plugin.cs
+        cat src/*.cs | grep ^.assembly: >> output/Plugin.cs
+        cat src/*.cs | grep -Ev '^(using|.assembly:)' >> output/Plugin.cs
+        xvfb-run keepass2 -plgx-create $PWD/output
     - uses: actions/upload-artifact@v4
       with:
         path: output.plgx

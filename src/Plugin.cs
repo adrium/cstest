@@ -1,3 +1,5 @@
+using System.IO;
+
 [assembly: System.Reflection.AssemblyTitle("HelloWorld")]
 [assembly: System.Reflection.AssemblyDescription ("Generates a Hello World entry")]
 [assembly: System.Reflection.AssemblyProduct("KeePass Plugin")]
