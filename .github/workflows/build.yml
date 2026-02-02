@@ -35,4 +35,4 @@ jobs:
         path: output.plgx
     - uses: actions/upload-artifact@v4
       with:
-        path: src/bin/Debug/*/
+        path: src/bin/Release/*/
