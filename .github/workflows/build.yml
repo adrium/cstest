@@ -28,6 +28,7 @@ jobs:
         cat src/*.cs | grep ^.assembly: >> output/Plugin.cs
         cat src/*.cs | grep -Ev '^(using|.assembly:)' >> output/Plugin.cs
         xvfb-run keepass2 -plgx-create $PWD/output
+    - run: find src/bin -type f
     - run: cat output/Plugin.cs
     - uses: actions/upload-artifact@v4
       with:
