@@ -10,7 +10,6 @@
 	<ItemGroup>
 		<Reference Include="KeePass">
 			<HintPath>..\build\KeePass.exe</HintPath>
-			<HintPath Condition="Exists('/usr/lib/keepass2')">/usr/lib/keepass2/KeePass.exe</HintPath>
 		</Reference>
 	</ItemGroup>
 

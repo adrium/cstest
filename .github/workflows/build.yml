@@ -18,6 +18,8 @@ jobs:
       run: |
         sudo apt update
         sudo apt install -y xvfb keepass2
+        curl -L -o kp.zip https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.18/KeePass-2.18.zip/download
+        unzip -d build kp.zip
     - run: dotnet build -c Release src
     - name: plgx create
       run: |
@@ -26,6 +28,10 @@ jobs:
         cat src/*.cs | grep ^.assembly: >> output/Plugin.cs
         cat src/*.cs | grep -Ev '^(using|.assembly:)' >> output/Plugin.cs
         xvfb-run keepass2 -plgx-create $PWD/output
+    - run: cat output/Plugin.cs
     - uses: actions/upload-artifact@v4
       with:
         path: output.plgx
+    - uses: actions/upload-artifact@v4
+      with:
+        path: src/bin/Debug/*/
